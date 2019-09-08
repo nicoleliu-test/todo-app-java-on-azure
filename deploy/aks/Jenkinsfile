@@ -1,17 +1,17 @@
 node('master') {
 
-    def servicePrincipalId = '<your-service-principal>'
+    def servicePrincipalId = 'svc_nicole_jenkins'
     def resourceGroup = '<your-resource-group-name>'
-    def aks = '<your-kubernetes-cluster-name>'
+    def aks = 'nicole-testcluster'
 
     def cosmosResourceGroup = '<your-cosmodb-resource-group>'
     def cosmosDbName = '<your-cosmodb-name>'
     def dbName = '<your-dbname>'
 
-    def dockerRegistry = '<your-acr-name>.azurecr.io'
+    def dockerRegistry = 'nicoleacr.azurecr.io'
     def imageName = "todo-app:${env.BUILD_NUMBER}"
     env.IMAGE_TAG = "${dockerRegistry}/${imageName}"
-    def dockerCredentialId = '<your-acr-credential-id>'
+    def dockerCredentialId = 'acr-credentials'
 
     def currentEnvironment = 'blue'
     def newEnvironment = { ->
